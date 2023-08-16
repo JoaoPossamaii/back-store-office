@@ -1,7 +1,23 @@
+import { ProductWithId } from "../types";
+import Products from "./Products"
 
-function ListOfProducts() {
+type Props = {
+  products: ProductWithId[]
+};
+
+function ListOfProducts({ products }: Props) {
   return (
-    <div>ListOfProducts</div>
+    <main>
+      <h1> Lista de Produtos</h1>
+      <div>
+        {products.length === 0 && <h2> Nenhum Produto Cadastrado</h2>}
+        {products.map((product) => (
+          <Products
+            key={product.id} 
+            productInfo={product} />
+        ))}
+      </div>
+    </main>
   )
 }
 

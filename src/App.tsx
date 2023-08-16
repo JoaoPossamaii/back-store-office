@@ -2,13 +2,13 @@ import { useState } from "react";
 
 import FormRegisterProduct from "./components/FormRegisterProduct";
 import ListOfProducts from "./components/ListOfProducts";
-import { ProductType } from "./types";
+import { ProductType, ProductWithId } from "./types";
 
 
 function App() {
 
   const [isRegsterProductVisible, setIsRegisterProductVisible] = useState(true);
-  const [products, setProducts] = useState<ProductType[]>([]);
+  const [products, setProducts] = useState<ProductWithId[]>([]);
 
 
   const handleShowRegisterProductComponent = () => {
@@ -21,7 +21,7 @@ function App() {
 
   const handleCreateProduct = (formData: ProductType) => {
     // const productWhitId = {...formData, id:Date.now()}
-    const productWhitId = Object.assign({}, formData, { id: Date.now() })
+    const productWhitId = Object.assign({}, formData, { id: Date.now() });
 
     setProducts([
       ...products,
@@ -49,7 +49,8 @@ function App() {
           />
         )
         : (
-          <ListOfProducts />
+          <ListOfProducts
+            products={products} />
         )
       }
     </div>
