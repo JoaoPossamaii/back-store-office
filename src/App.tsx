@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import FormRegisterProduct from "./components/FormRegisterProduct";
 import ListOfProducts from "./components/ListOfProducts";
-// import { ProductType } from './types';
+
 
 function App() {
 

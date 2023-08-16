@@ -1,14 +1,17 @@
 import { useState } from "react";
+import Products from "./Products";
+import { ProductType } from "../types";
+
+
+const INITIAL_STATE = {
+  name: '',
+  price: '',
+  description: '',
+  tags: '',
+  image: '',
+} as unknown as ProductType;
 
 function FormRegisterProduct() {
-
-  const INITIAL_STATE = {
-    name: '',
-    price: '',
-    description: '',
-    tags: '',
-    image: '',
-  }
 
   const [formData, SetFormData] = useState(INITIAL_STATE);
 
@@ -53,7 +56,7 @@ function FormRegisterProduct() {
             />
           </label>
 
-          <label htmlFor="prie">
+          <label htmlFor="price">
             Preço
             <input
               type="number"
@@ -66,7 +69,7 @@ function FormRegisterProduct() {
           <label htmlFor="image">
             Imagem
             <input
-              type="file"
+              type="url"
               id="image"
               onChange={handleChange}
               value={formData.image}
@@ -88,6 +91,10 @@ function FormRegisterProduct() {
             SALVAR
           </button>
         </form>
+
+        <Products
+          productInfo={formData}
+        />
       </div>
     </main>
   )
