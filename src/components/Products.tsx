@@ -13,7 +13,7 @@ function Products({ productInfo }: Props) {
     <div>
       <img src={image} alt={name} />
       <h3> {name}</h3>
-      <h4>  {price}</h4>
+      <h4> {price}</h4>
       <ul>
         {tagsList.map((tag) =>
           <li key={tag}>

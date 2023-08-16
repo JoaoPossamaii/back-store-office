@@ -3,6 +3,10 @@ import Products from "./Products";
 import { ProductType } from "../types";
 
 
+type Props = {
+  handleSubmit: (formData: ProductType) => void
+};
+
 const INITIAL_STATE = {
   name: '',
   price: '',
@@ -11,7 +15,9 @@ const INITIAL_STATE = {
   image: '',
 } as unknown as ProductType;
 
-function FormRegisterProduct() {
+function FormRegisterProduct(props: Props) {
+
+  const { handleSubmit } = props;
 
   const [formData, SetFormData] = useState(INITIAL_STATE);
 
@@ -31,11 +37,17 @@ function FormRegisterProduct() {
     }
   };
 
+  const onSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleSubmit(formData);
+    SetFormData(INITIAL_STATE);
+  }
+
   return (
     <main>
       <h1> Cadastrar Novo Produto</h1>
       <div>
-        <form >
+        <form onSubmit={onSubmit} >
           <label htmlFor="name">
             Nome
             <input
