@@ -29,6 +29,12 @@ function App() {
     ])
   };
 
+  const handleDeleteProduct = (id: string | number) => {
+     
+   const filteredProducts = products.filter((product) => product.id !== id);
+    setProducts(filteredProducts);
+  };
+
 
   return (
     <div>
@@ -50,7 +56,9 @@ function App() {
         )
         : (
           <ListOfProducts
-            products={products} />
+            products={products}
+            handleDelete={handleDeleteProduct}
+          />
         )
       }
     </div>

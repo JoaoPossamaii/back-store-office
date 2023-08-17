@@ -3,9 +3,10 @@ import Products from "./Products"
 
 type Props = {
   products: ProductWithId[]
+  handleDelete: ((id: string | number) => void)
 };
 
-function ListOfProducts({ products }: Props) {
+function ListOfProducts({ products, handleDelete }: Props) {
   return (
     <main>
       <h1> Lista de Produtos</h1>
@@ -13,8 +14,9 @@ function ListOfProducts({ products }: Props) {
         {products.length === 0 && <h2> Nenhum Produto Cadastrado</h2>}
         {products.map((product) => (
           <Products
-            key={product.id} 
-            productInfo={product} />
+            key={product.id}
+            productInfo={product}
+            handleDelete={handleDelete} />
         ))}
       </div>
     </main>

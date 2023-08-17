@@ -9,7 +9,7 @@ type Props = {
 
 const INITIAL_STATE = {
   name: '',
-  price: '',
+  price: 0,
   description: '',
   tags: '',
   image: '',
