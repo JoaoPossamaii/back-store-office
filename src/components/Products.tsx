@@ -1,5 +1,9 @@
 import { ProductWithId, ProductType } from '../types';
 
+import '../styles/Products.css'
+import X from '@phosphor-icons/react/dist/icons/X';
+import searchImage from '../assets/image.png'
+
 
 type Props = {
   productInfo: ProductWithId | ProductType
@@ -11,9 +15,11 @@ function Products({ productInfo, handleDelete }: Props) {
 
   const tagsList = tags ? tags.split(',').map((tag) => tag.trim()) : [];
   return (
-    <div>
-      {handleDelete && <button onClick={() => handleDelete(id)}> X </button>}
-      <img src={image} alt={name} />
+    <div className='product-container'>
+      {handleDelete && <button onClick={() => handleDelete(id)}> 
+      <X  size={40} color="hotpink"/>
+         </button>}
+      <img src={image || searchImage} alt={name} />
       <h3> {name}</h3>
       <h4> R$ {price}</h4>
       <ul>

@@ -1,0 +1,8 @@
+/* ListOfProducts */
+
+.list-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 120px;
+  row-gap: 56px;
+}

@@ -2,6 +2,8 @@ import { useState } from "react";
 import Products from "./Products";
 import { ProductType } from "../types";
 
+import '../styles/FormRegisterProduct.css'
+
 
 type Props = {
   handleSubmit: (formData: ProductType) => void
@@ -44,9 +46,9 @@ function FormRegisterProduct(props: Props) {
   }
 
   return (
-    <main>
+    <>
       <h1> Cadastrar Novo Produto</h1>
-      <div>
+      <div className="register-container">
         <form onSubmit={onSubmit} >
           <label htmlFor="name">
             Nome
@@ -108,7 +110,7 @@ function FormRegisterProduct(props: Props) {
           productInfo={formData}
         />
       </div>
-    </main>
+    </>
   )
 }
 
